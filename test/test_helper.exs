@@ -2,7 +2,7 @@ Application.put_env(:ex_unit, :capture_log, true)
 
 Application.put_env(:ecto_trailer, TestRepo,
   pool: Ecto.Adapters.SQL.Sandbox,
-  database: "ecto_trail_test",
+  database: "ecto_trailer_test",
   hostname: "localhost",
   pool_size: 10
 )
