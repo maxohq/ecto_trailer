@@ -39,6 +39,7 @@ defmodule EctoTrailer.Mixfile do
       ## TEST
       {:dialyxir, "~> 1.1", only: [:dev, :test], runtime: false},
       {:excoveralls, ">= 0.5.0", only: [:test], runtime: false},
+      {:castore, "~> 1.0", only: [:test]},
 
       ## DEV
       {:ex_doc, ">= 0.15.0", only: [:dev], runtime: false},
