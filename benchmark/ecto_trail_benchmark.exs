@@ -8,7 +8,7 @@ Mix.env(:test)
 Application.ensure_all_started(:postgrex)
 Application.ensure_all_started(:ecto)
 
-alias EctoTrail.TestRepo
+alias EctoTrailer.TestRepo
 alias Ecto.Changeset
 
 # Ensure the repo is started and create tables

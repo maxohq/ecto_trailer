@@ -1,8 +1,8 @@
 defmodule EctoTrailTest do
-  use EctoTrail.DataCase
-  alias EctoTrail.Changelog
+  use EctoTrailer.DataCase
+  alias EctoTrailer.Changelog
   alias Ecto.Changeset
-  doctest EctoTrail
+  doctest EctoTrailer
 
   describe "insert_and_log/3" do
     test "logs changes when schema is inserted" do

@@ -10,26 +10,19 @@ EctoTrail allows to store changeset changes into a separate `audit_log` table.
 
 ```elixir
 def deps do
-  [{:ecto_trail, "~> 0.2.0"}]
+  [{:ecto_trailer, "~> 0.2.0"}]
 end
 ```
 
-2. Ensure `ecto_trail` is started before your application:
+
+2. Add a migration that creates `audit_log` table to `priv/repo/migrations` folder:
 
 ```elixir
-def application do
-  [extra_applications: [:ecto_trail]]
-end
-```
-
-3. Add a migration that creates `audit_log` table to `priv/repo/migrations` folder:
-
-```elixir
-defmodule EctoTrail.TestRepo.Migrations.CreateAuditLogTable do
+defmodule EctoTrailer.TestRepo.Migrations.CreateAuditLogTable do
   @moduledoc false
   use Ecto.Migration
 
-  @table_name String.to_atom(Application.compile_env(:ecto_trail, :table_name, "audit_log"))
+  @table_name String.to_atom(Application.compile_env(:ecto_trailer, :table_name, "audit_log"))
 
   def change(table_name \\ @table_name) do
     EctoTrailChangeEnum.create_type
@@ -51,17 +44,17 @@ end
 ```elixir
 defmodule MyApp.Repo do
   use Ecto.Repo, otp_app: :my_app
-  use EctoTrail
+  use EctoTrailer
 end
 ```
 
 5. Configure table name which is used to store audit log (in `config.ex`):
 
 ```elixir
-config :ecto_trail, table_name: "audit_log", redacted_fields: [:password, :token]
+config :ecto_trailer, table_name: "audit_log", redacted_fields: [:password, :token]
 ```
 
-6. Use logging functions instead of defaults. See `EctoTrail` module docs.
+6. Use logging functions instead of defaults. See `EctoTrailer` module docs.
 
 ## Docs
 

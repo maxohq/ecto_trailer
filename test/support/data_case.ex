@@ -1,4 +1,4 @@
-defmodule EctoTrail.DataCase do
+defmodule EctoTrailer.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -21,7 +21,7 @@ defmodule EctoTrail.DataCase do
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import EctoTrail.DataCase
+      import EctoTrailer.DataCase
     end
   end
 

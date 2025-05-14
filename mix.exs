@@ -1,11 +1,11 @@
-defmodule EctoTrail.Mixfile do
+defmodule EctoTrailer.Mixfile do
   use Mix.Project
 
   @version "1.0.0"
 
   def project do
     [
-      app: :ecto_trail,
+      app: :ecto_trailer,
       description: description(),
       package: package(),
       version: @version,
@@ -48,7 +48,7 @@ defmodule EctoTrail.Mixfile do
       contributors: ["Valiot, Nebo #15"],
       maintainers: ["Valiot"],
       licenses: ["LICENSE.md"],
-      links: %{github: "https://github.com/Valiot/ecto_trail"},
+      links: %{github: "https://github.com/maxohq/ecto_trailer"},
       files: ~w(lib LICENSE.md mix.exs README.md)
     ]
   end

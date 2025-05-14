@@ -1,6 +1,6 @@
 Application.put_env(:ex_unit, :capture_log, true)
 
-Application.put_env(:ecto_trail, TestRepo,
+Application.put_env(:ecto_trailer, TestRepo,
   pool: Ecto.Adapters.SQL.Sandbox,
   database: "ecto_trail_test",
   hostname: "localhost",
@@ -9,10 +9,10 @@ Application.put_env(:ecto_trail, TestRepo,
 
 defmodule TestRepo do
   use Ecto.Repo,
-    otp_app: :ecto_trail,
+    otp_app: :ecto_trailer,
     adapter: Ecto.Adapters.Postgres
 
-  use EctoTrail
+  use EctoTrailer
 end
 
 defmodule Comment do
@@ -85,7 +85,7 @@ _ = TestRepo.__adapter__().storage_up(TestRepo.config())
 {:ok, _pid} = TestRepo.start_link()
 
 # Migrate DB
-migrations_path = Path.join([:code.priv_dir(:ecto_trail), "repo", "migrations"])
+migrations_path = Path.join([:code.priv_dir(:ecto_trailer), "repo", "migrations"])
 Ecto.Migrator.run(TestRepo, migrations_path, :up, all: true)
 
 # Start ExUnit

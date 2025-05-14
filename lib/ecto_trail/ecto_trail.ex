@@ -1,24 +1,18 @@
-defmodule EctoTrail do
+defmodule EctoTrailer do
   @moduledoc """
-  EctoTrail allows to store changeset changes into a separate `audit_log` table.
+  EctoTrailer allows to store changeset changes into a separate `audit_log` table.
 
   ## Usage
 
-  1. Add `ecto_trail` to your list of dependencies in `mix.exs`:
+  1. Add `ecto_trailer` to your list of dependencies in `mix.exs`:
 
       def deps do
-        [{:ecto_trail, "~> 0.1.0"}]
+        [{:ecto_trailer, "~> 0.1.0"}]
       end
 
-  2. Ensure `ecto_trail` is started before your application:
+  2. Add a migration that creates `audit_log` table to `priv/repo/migrations` folder:
 
-    def application do
-      [extra_applications: [:ecto_trail]]
-    end
-
-  3. Add a migration that creates `audit_log` table to `priv/repo/migrations` folder:
-
-      defmodule EctoTrail.TestRepo.Migrations.CreateAuditLogTable do
+      defmodule EctoTrailer.TestRepo.Migrations.CreateAuditLogTable do
         @moduledoc false
         use Ecto.Migration
 
@@ -35,24 +29,24 @@ defmodule EctoTrail do
         end
       end
 
-  4. Use `EctoTrail` in your repo:
+  4. Use `EctoTrailer` in your repo:
 
       defmodule MyApp.Repo do
         use Ecto.Repo, otp_app: :my_app
-        use EctoTrail
+        use EctoTrailer
       end
 
-  5. Use logging functions instead of defaults. See `EctoTrail` module docs.
+  5. Use logging functions instead of defaults. See `EctoTrailer` module docs.
   """
   alias Ecto.Changeset
-  alias EctoTrail.Changelog
+  alias EctoTrailer.Changelog
   alias Ecto.Multi
   require Logger
 
   @type action_type :: :insert | :update | :upsert | :delete
 
   # Cache frequently accessed config to avoid repeated lookups
-  @redacted_fields_config Application.compile_env(:ecto_trail, :redacted_fields, nil)
+  @redacted_fields_config Application.compile_env(:ecto_trailer, :redacted_fields, nil)
   @changelog_fields [:actor_id, :resource, :resource_id, :changeset, :change_type]
   @not_loaded_pattern "Ecto.Association.NotLoaded"
 
@@ -70,7 +64,7 @@ defmodule EctoTrail do
               action_type :: action_type()
             ) :: {:ok, Ecto.Schema.t()} | {:error, Ecto.Changeset.t()}
       def log(struct_or_changeset, changes, actor_id, action_type),
-        do: EctoTrail.log(__MODULE__, struct_or_changeset, changes, actor_id, action_type)
+        do: EctoTrailer.log(__MODULE__, struct_or_changeset, changes, actor_id, action_type)
 
       @doc """
       Store bulk changes in a `change_log` table.
@@ -82,7 +76,7 @@ defmodule EctoTrail do
               action_type :: action_type()
             ) :: :ok
       def log_bulk(structs, changes, actor_id, action_type),
-        do: EctoTrail.log_bulk(__MODULE__, structs, changes, actor_id, action_type)
+        do: EctoTrailer.log_bulk(__MODULE__, structs, changes, actor_id, action_type)
 
       @doc """
       Call `c:Ecto.Repo.insert/2` operation and store changes in a `change_log` table.
@@ -95,7 +89,7 @@ defmodule EctoTrail do
               opts :: Keyword.t()
             ) :: {:ok, Ecto.Schema.t()} | {:error, Ecto.Changeset.t()}
       def insert_and_log(struct_or_changeset, actor_id, opts \\ []),
-        do: EctoTrail.insert_and_log(__MODULE__, struct_or_changeset, actor_id, opts)
+        do: EctoTrailer.insert_and_log(__MODULE__, struct_or_changeset, actor_id, opts)
 
       @doc """
       Call `c:Ecto.Repo.update/2` operation and store changes in a `change_log` table.
@@ -110,7 +104,7 @@ defmodule EctoTrail do
               {:ok, Ecto.Schema.t()}
               | {:error, Ecto.Changeset.t()}
       def update_and_log(changeset, actor_id, opts \\ []),
-        do: EctoTrail.update_and_log(__MODULE__, changeset, actor_id, opts)
+        do: EctoTrailer.update_and_log(__MODULE__, changeset, actor_id, opts)
 
       @doc """
       Call `c:Ecto.Repo.upsert/2` operation and store changes in a `change_log` table.
@@ -125,7 +119,7 @@ defmodule EctoTrail do
               {:ok, Ecto.Schema.t()}
               | {:error, Ecto.Changeset.t()}
       def upsert_and_log(struct_or_changeset, actor_id, opts \\ []),
-        do: EctoTrail.upsert_and_log(__MODULE__, struct_or_changeset, actor_id, opts)
+        do: EctoTrailer.upsert_and_log(__MODULE__, struct_or_changeset, actor_id, opts)
 
       @doc """
       Call `c:Ecto.Repo.delete/2` operation and store deleted objext in a `change_log` table.
@@ -138,7 +132,7 @@ defmodule EctoTrail do
               {:ok, Ecto.Schema.t()}
               | {:error, Ecto.Changeset.t()}
       def delete_and_log(struct_or_changeset, actor_id, opts \\ []),
-        do: EctoTrail.delete_and_log(__MODULE__, struct_or_changeset, actor_id, opts)
+        do: EctoTrailer.delete_and_log(__MODULE__, struct_or_changeset, actor_id, opts)
     end
   end
 

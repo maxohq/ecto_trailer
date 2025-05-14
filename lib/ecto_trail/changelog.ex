@@ -1,10 +1,10 @@
-defmodule EctoTrail.Changelog do
+defmodule EctoTrailer.Changelog do
   @moduledoc """
   This is schema that used to store changes in DB.
   """
   use Ecto.Schema
 
-  @table_name Application.compile_env(:ecto_trail, :table_name, "audit_log")
+  @table_name Application.compile_env(:ecto_trailer, :table_name, "audit_log")
   schema @table_name do
     field(:actor_id, :string)
     field(:resource, :string)

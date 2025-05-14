@@ -1,4 +1,4 @@
-defmodule EctoTrail.TestRepo.Migrations.AddItemsIntoResourcesTable do
+defmodule EctoTrailer.TestRepo.Migrations.AddItemsIntoResourcesTable do
   @moduledoc false
   use Ecto.Migration
 

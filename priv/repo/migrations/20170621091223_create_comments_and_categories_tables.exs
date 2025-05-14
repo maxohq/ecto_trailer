@@ -1,4 +1,4 @@
-defmodule EctoTrail.TestRepo.Migrations.CreateCommentsAndCategoriesTables do
+defmodule EctoTrailer.TestRepo.Migrations.CreateCommentsAndCategoriesTables do
   @moduledoc false
   use Ecto.Migration
 

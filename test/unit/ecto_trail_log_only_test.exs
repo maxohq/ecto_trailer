@@ -1,7 +1,7 @@
 defmodule EctoTrailLogOnlyTest do
-  use EctoTrail.DataCase
-  alias EctoTrail.Changelog
-  doctest EctoTrail
+  use EctoTrailer.DataCase
+  alias EctoTrailer.Changelog
+  doctest EctoTrailer
 
   describe "log_bulk" do
     test "logs inserted structs with associated changes" do
