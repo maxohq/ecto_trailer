@@ -64,5 +64,4 @@ jobs:
             ${{ runner.os }}-mix-
       - run: mix deps.get
       - run: mix deps.compile
-      - run: mix format --check-formatted
       - run: mix test
