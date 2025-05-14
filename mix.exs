@@ -56,9 +56,9 @@ defmodule EctoTrailer.Mixfile do
     [
       contributors: ["Valiot, Nebo #15"],
       maintainers: ["Valiot"],
-      licenses: ["LICENSE.md"],
+      licenses: ["MIT"],
       links: %{github: "https://github.com/maxohq/ecto_trailer"},
-      files: ~w(lib LICENSE.md mix.exs README.md)
+      files: ~w(lib LICENSE mix.exs README.md)
     ]
   end
 end
