@@ -80,7 +80,7 @@ defmodule EctoTrail do
               changes :: list(Map.t()),
               actor_id :: String.T,
               action_type :: action_type()
-            ) :: {:ok, Ecto.Schema.t()} | {:error, Ecto.Changeset.t()}
+            ) :: :ok
       def log_bulk(structs, changes, actor_id, action_type),
         do: EctoTrail.log_bulk(__MODULE__, structs, changes, actor_id, action_type)
 
