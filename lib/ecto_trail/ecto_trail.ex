@@ -70,9 +70,9 @@ defmodule EctoTrailer do
       Store bulk changes in a `change_log` table.
       """
       @spec log_bulk(
-              structs :: list(Ecto.Schema.t()),
-              changes :: list(map()),
-              actor_id :: String.T,
+              structs :: [Ecto.Schema.t()],
+              changes :: [map()],
+              actor_id :: String.t(),
               action_type :: action_type()
             ) :: :ok
       def log_bulk(structs, changes, actor_id, action_type),
