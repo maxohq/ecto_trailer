@@ -359,7 +359,7 @@ defmodule EctoTrailer do
 
   defp validate_changes(changes, _schema, _operation_type), do: changes
 
-  defp redact_custom_fields(changeset) when is_nil(@redacted_fields_config), do: changeset
+  # defp redact_custom_fields(changeset) when is_nil(@redacted_fields_config), do: changeset
   defp redact_custom_fields(changeset), do: redact_fields(changeset, @redacted_fields_config)
 
   defp redact_fields(changeset, redacted_fields) do
