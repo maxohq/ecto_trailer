@@ -59,7 +59,7 @@ defmodule EctoTrailer do
       """
       @spec log(
               struct_or_changeset :: Ecto.Schema.t() | Ecto.Changeset.t(),
-              changes :: Map.t(),
+              changes :: map(),
               actor_id :: String.T,
               action_type :: action_type()
             ) :: {:ok, Ecto.Schema.t()} | {:error, Ecto.Changeset.t()}
@@ -71,7 +71,7 @@ defmodule EctoTrailer do
       """
       @spec log_bulk(
               structs :: list(Ecto.Schema.t()),
-              changes :: list(Map.t()),
+              changes :: list(map()),
               actor_id :: String.T,
               action_type :: action_type()
             ) :: :ok
@@ -142,7 +142,7 @@ defmodule EctoTrailer do
   @spec log(
           repo :: Ecto.Repo.t(),
           struct_or_changeset :: Ecto.Schema.t() | Ecto.Changeset.t(),
-          changes :: Map.t(),
+          changes :: map(),
           actor_id :: String.T,
           action_type :: action_type()
         ) :: {:ok, Ecto.Schema.t()} | {:error, Ecto.Changeset.t()}
@@ -158,7 +158,7 @@ defmodule EctoTrailer do
   @spec log_bulk(
           repo :: Ecto.Repo.t(),
           structs :: list(Ecto.Schema.t()),
-          changes :: list(Map.t()),
+          changes :: list(map()),
           actor_id :: String.T,
           action_type :: action_type()
         ) :: {:ok, Ecto.Schema.t()} | {:error, Ecto.Changeset.t()}
