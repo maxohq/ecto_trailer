@@ -1,5 +1,12 @@
 # EctoTrailer
 
+[![CI](https://github.com/maxohq/ecto_trailer/actions/workflows/ci.yml/badge.svg?style=flat)](https://github.com/maxohq/ecto_trailer/actions/workflows/ci.yml)
+[![Hex.pm](https://img.shields.io/hexpm/v/ecto_trailer.svg?style=flat)](https://hex.pm/packages/ecto_trailer)
+[![Docs](https://img.shields.io/badge/hex-docs-lightgreen.svg?style=flat)](https://hexdocs.pm/ecto_trailer)
+[![Total Download](https://img.shields.io/hexpm/dt/ecto_trailer.svg?style=flat)](https://hex.pm/packages/ecto_trailer)
+[![License](https://img.shields.io/hexpm/l/ecto_trailer.svg?style=flat)](https://github.com/maxohq/ecto_trailer/blob/main/LICENCE)
+
+
 - Fork from https://github.com/valiot/ecto_trail -> https://github.com/Nebo15/ecto_trail
 - renamed, so we can release an updated package on Hex.pm
 
