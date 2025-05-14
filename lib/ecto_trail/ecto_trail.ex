@@ -157,11 +157,11 @@ defmodule EctoTrailer do
   """
   @spec log_bulk(
           repo :: Ecto.Repo.t(),
-          structs :: list(Ecto.Schema.t()),
-          changes :: list(map()),
-          actor_id :: String.T,
+          structs :: [Ecto.Schema.t()],
+          changes :: [map()],
+          actor_id :: String.t(),
           action_type :: action_type()
-        ) :: {:ok, Ecto.Schema.t()} | {:error, Ecto.Changeset.t()}
+        ) :: :ok
   def log_bulk(repo, structs, changes, actor_id, action_type) do
     actor_id_str = to_actor_id_string(actor_id)
 
