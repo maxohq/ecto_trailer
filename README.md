@@ -1,16 +1,17 @@
-# EctoTrail
+# EctoTrailer
 
-[![Hex.pm Downloads](https://img.shields.io/hexpm/dw/ecto_trail.svg?maxAge=3600)](https://hex.pm/packages/ecto_trail) [![Latest Version](https://img.shields.io/hexpm/v/ecto_trail.svg?maxAge=3600)](https://hex.pm/packages/ecto_trail) [![License](https://img.shields.io/hexpm/l/ecto_trail.svg?maxAge=3600)](https://hex.pm/packages/ecto_trail) [![Build Status](https://travis-ci.org/Nebo15/ecto_trail.svg?branch=master)](https://travis-ci.org/Nebo15/ecto_trail) [![Coverage Status](https://coveralls.io/repos/github/Nebo15/ecto_trail/badge.svg?branch=master)](https://coveralls.io/github/Nebo15/ecto_trail?branch=master) [![Ebert](https://ebertapp.io/github/Nebo15/ecto_trail.svg)](https://ebertapp.io/github/Nebo15/ecto_trail)
+- Fork from https://github.com/valiot/ecto_trail -> https://github.com/Nebo15/ecto_trail
+- renamed, so we can release an updated package on Hex.pm
 
-EctoTrail allows to store changeset changes into a separate `audit_log` table.
+EctoTrailer allows to store changeset changes into a separate `audit_log` table.
 
 ## Installation and usage
 
-1. Add `ecto_trail` to your list of dependencies in `mix.exs`:
+1. Add `ecto_trailer` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
-  [{:ecto_trailer, "~> 0.2.0"}]
+  [{:ecto_trailer, "~> 1.0"}]
 end
 ```
 
@@ -39,7 +40,7 @@ defmodule EctoTrailer.TestRepo.Migrations.CreateAuditLogTable do
 end
 ```
 
-4. Use `EctoTrail` in your repo:
+4. Use `EctoTrailer` in your repo:
 
 ```elixir
 defmodule MyApp.Repo do
@@ -58,4 +59,4 @@ config :ecto_trailer, table_name: "audit_log", redacted_fields: [:password, :tok
 
 ## Docs
 
-The docs can be found at [https://hexdocs.pm/ecto_trail](https://hexdocs.pm/ecto_trail).
+The docs can be found at [https://hexdocs.pm/ecto_trailer](https://hexdocs.pm/ecto_trailer).
