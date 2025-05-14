@@ -39,7 +39,7 @@ defmodule EctoTrailer.Mixfile do
       {:jason, "~> 1.4"},
 
       ## DEV
-      {:ex_doc, ">= 0.15.0", only: [:dev], runtime: false},
+      {:ex_doc, "~> 0.38", only: [:dev], runtime: false},
       {:benchee, "~> 1.0", only: [:dev], runtime: false}
     ]
   end
