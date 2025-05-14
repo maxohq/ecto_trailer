@@ -36,12 +36,14 @@ defmodule EctoTrailer.Mixfile do
       {:postgrex, ">= 0.14.0"},
       {:ecto_enum, "~> 1.0"},
 
-      ### Dev packages
+      ## TEST
       {:dialyxir, "~> 1.1", only: [:dev, :test], runtime: false},
-      {:ex_doc, ">= 0.15.0", only: [:dev, :test], runtime: false},
-      {:excoveralls, ">= 0.5.0", only: [:dev, :test], runtime: false},
-      {:credo, ">= 0.5.1", only: [:dev, :test], runtime: false},
-      {:benchee, "~> 1.0", only: [:dev, :test], runtime: false}
+      {:excoveralls, ">= 0.5.0", only: [:test], runtime: false},
+
+      ## DEV
+      {:ex_doc, ">= 0.15.0", only: [:dev], runtime: false},
+      {:credo, ">= 0.5.1", only: [:dev], runtime: false},
+      {:benchee, "~> 1.0", only: [:dev], runtime: false}
     ]
   end
 
