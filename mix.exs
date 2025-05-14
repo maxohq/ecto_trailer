@@ -15,6 +15,7 @@ defmodule EctoTrailer.Mixfile do
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       deps: deps(),
+      aliases: aliases(),
       docs: [source_ref: "v#\{@version\}", main: "readme", extras: ["README.md"]]
     ]
   end
@@ -45,6 +46,14 @@ defmodule EctoTrailer.Mixfile do
       {:ex_doc, ">= 0.15.0", only: [:dev], runtime: false},
       {:credo, ">= 0.5.1", only: [:dev], runtime: false},
       {:benchee, "~> 1.0", only: [:dev], runtime: false}
+    ]
+  end
+
+  def aliases do
+    [
+      "ecto.setup": ["ecto.create", "ecto.migrate"],
+      "ecto.reset": ["ecto.drop", "ecto.setup"],
+      test: ["ecto.create --quiet", "ecto.migrate", "test"]
     ]
   end
 
